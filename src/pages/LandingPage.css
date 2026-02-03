@@ -54,6 +54,11 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   /* animation: sparkle 2s ease-in-out infinite; */
 }
+.logo-text {
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 2.1rem;
+}
 
 @keyframes sparkle {
   0%,

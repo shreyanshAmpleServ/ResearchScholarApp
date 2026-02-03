@@ -1,0 +1,22 @@
+📄 PLACE YOUR PDF HERE
+======================
+
+File needed: dummyPdf.pdf
+
+The application expects a PDF file named "dummyPdf.pdf" in this folder.
+
+You have already uploaded the PDF:
+- Title: "Contradictory Postulates of Singularity" 
+- Authors: Kyle Baker, Eryn Culton, Joshua Ten Eyck, Zachary Lewis & Timothy Sands
+- Published in: Mechanical Engineering Research; Vol. 9 No. 2; 2019
+
+STEPS TO ADD YOUR PDF:
+1. Download the PDF file you uploaded to me
+2. Copy it to this folder (src/Assets/)
+3. Rename it to: dummyPdf.pdf
+4. Delete this placeholder file
+5. Run: npm run dev
+
+The preview and download features will then work perfectly!
+
+Note: You can use any PDF file - just name it "dummyPdf.pdf"

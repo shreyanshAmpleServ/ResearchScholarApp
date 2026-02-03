@@ -84,9 +84,9 @@ const Layout = () => {
               Contact
             </button>
 
-            <button className="nav-btn" onClick={() => goTo("/library")}>
+            {/* <button className="nav-btn" onClick={() => goTo("/library")}>
               Explore Library
-            </button>
+            </button> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -130,12 +130,12 @@ const Layout = () => {
           </button>
           <button onClick={() => goTo("/contact")}>Contact</button>
 
-          <button
+          {/* <button
             className="drawer-btn nav-btn"
             onClick={() => goTo("/library")}
           >
             Explore Library
-          </button>
+          </button> */}
         </div>
       </div>
 

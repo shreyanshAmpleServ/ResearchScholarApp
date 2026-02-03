@@ -235,13 +235,13 @@ const LandingPage = () => {
             Join thousands of scholars making an impact in the global research
             community
           </p>
-          <button
+          {/* <button
             className="btn btn-large"
             onClick={() => navigate("/library")}
           >
             Explore Research Library
             <ArrowRight size={24} />
-          </button>
+          </button> */}
         </div>
         <div className="cta-decorative">
           <div className="decorative-circle circle-1"></div>

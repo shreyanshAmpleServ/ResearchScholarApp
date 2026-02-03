@@ -57,7 +57,7 @@
 .logo-text {
   color: var(--color-accent);
   font-weight: 700;
-  font-size: 2.1rem;
+  font-size: 2rem;
 }
 
 @keyframes sparkle {
@@ -748,7 +748,9 @@
     text-align: center;
     padding: 6rem 2rem 3rem;
   }
-
+  .logo-text {
+    font-size: 1rem;
+  }
   .hero-visual {
     display: none;
   }

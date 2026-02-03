@@ -147,7 +147,7 @@ html {
 }
 .grain-overlay {
   width: 100vw;
-  overflow: auto;
+  /* overflow: auto; */
 }
 /* .grain-overlay {
   position: fixed;

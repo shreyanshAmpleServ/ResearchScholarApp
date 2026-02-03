@@ -12,7 +12,7 @@ const Layout = () => {
     setOpen(false);
   };
   return (
-    <div className="grain-overlay">
+    <div className="grain-overlay  " style={{ position: "relative" }}>
       {/* Navigation */}
       {/* <Sparkles className="logo-icon" /> */}
       {/* <img src={logo} className="logo-icon " /> */}

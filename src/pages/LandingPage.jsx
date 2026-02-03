@@ -68,28 +68,6 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
-      {/* Navigation */}
-      <nav className="navbar">
-        <div className="nav-container">
-          <div className="logo">
-            {/* <Sparkles className="logo-icon" /> */}
-            <img src={logo} className="logo-icon " />
-            <span className="logo-text">
-              Universal Journal of Advanced Research
-            </span>
-            {/* <span className="logo-text">ResearchHub</span> */}
-          </div>
-          <div className="nav-links">
-            <a href="#about">About</a>
-            <a href="#features">Features</a>
-            <a href="#stats">Impact</a>
-            <button className="nav-btn" onClick={() => navigate("/library")}>
-              Explore Library
-            </button>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-background">
@@ -123,7 +101,7 @@ const LandingPage = () => {
             vibrant community of thinkers shaping the future of knowledge. */}
           </p>
 
-          <div className="hero-actions">
+          {/* <div className="hero-actions">
             <button
               className="btn btn-primary"
               onClick={() => navigate("/library")}
@@ -136,7 +114,7 @@ const LandingPage = () => {
               <Award size={20} />
               Submit Research
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* <div className="hero-visual">
@@ -273,13 +251,13 @@ const LandingPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
+      {/* <Sparkles className="footer-logo" /> */}
+      {/* <span>ResearchHub</span> */}
+      {/* <footer className="footer">
         <div className="footer-content">
           <div className="footer-brand">
-            {/* <Sparkles className="footer-logo" /> */}
             <img src={logo} className="logo-icon " />
 
-            {/* <span>ResearchHub</span> */}
             <span className="logo-text">
               Universal Journal of Advanced Research
             </span>
@@ -291,7 +269,7 @@ const LandingPage = () => {
             © 2026 Universal Journal of Advanced Research. All rights reserved.
           </p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 };

@@ -412,12 +412,12 @@ const LibraryPage = () => {
       )}
 
       {/* Footer */}
-      <footer className="library-footer">
+      {/* <footer className="library-footer">
         <p>
           © 2026 Universal Journal of Advanced Research. Advancing knowledge
           through collaborative research.
         </p>
-      </footer>
+      </footer> */}
 
       {/* PDF Preview Modal */}
       {showPreview && previewPdf && (

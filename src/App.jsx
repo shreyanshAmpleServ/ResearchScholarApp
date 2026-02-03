@@ -1,19 +1,26 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import LandingPage from './pages/LandingPage'
-import LibraryPage from './pages/LibraryPage'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import LibraryPage from "./pages/LibraryPage";
+import "./pages/LandingPage.css";
+import Routers from "./routes";
 
 function App() {
   return (
     <>
       <div className="grain-overlay"></div>
-      <Router>
+      <Routers />
+      {/* <Router>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/library" element={<LibraryPage />} />
+         
         </Routes>
-      </Router>
+      </Router> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

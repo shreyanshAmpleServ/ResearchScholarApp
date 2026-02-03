@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { BookOpen, TrendingUp, Users, Award, ArrowRight, Sparkles, FileText, Database } from 'lucide-react'
 import './LandingPage.css'
+import logo from "../Assets/logoR.png"
 
 const LandingPage = () => {
   const navigate = useNavigate()
@@ -41,8 +42,10 @@ const LandingPage = () => {
       <nav className="navbar">
         <div className="nav-container">
           <div className="logo">
-            <Sparkles className="logo-icon" />
-            <span className="logo-text">ResearchHub</span>
+            {/* <Sparkles className="logo-icon" /> */}
+            <img src={logo}  className='logo-icon ' />
+            <span className="logo-text">Universal Journal of Advanced Research</span>
+            {/* <span className="logo-text">ResearchHub</span> */}
           </div>
           <div className="nav-links">
             <a href="#about">About</a>

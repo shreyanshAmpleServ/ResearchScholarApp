@@ -30,7 +30,7 @@
 .nav-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 1.5rem 3rem;
+  padding: 0.8rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,12 +48,21 @@
 
 .logo-icon {
   color: var(--color-accent);
-  animation: sparkle 2s ease-in-out infinite;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  /* animation: sparkle 2s ease-in-out infinite; */
 }
 
 @keyframes sparkle {
-  0%, 100% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.1); }
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
 }
 
 .nav-links {
@@ -73,7 +82,7 @@
 }
 
 .nav-links a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -144,7 +153,11 @@
 .shape-1 {
   width: 500px;
   height: 500px;
-  background: linear-gradient(135deg, var(--color-accent-light), var(--color-gold));
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light),
+    var(--color-gold)
+  );
   top: -200px;
   right: -100px;
   animation-delay: 0s;
@@ -176,7 +189,11 @@
   transform: translate(-50%, -50%);
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(199, 82, 42, 0.1) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(199, 82, 42, 0.1) 0%,
+    transparent 70%
+  );
 }
 
 .hero-content {
@@ -219,7 +236,11 @@
 }
 
 .title-line.highlight {
-  background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent));
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light),
+    var(--color-accent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -228,7 +249,7 @@
 }
 
 .title-line.highlight::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 10px;
   left: 0;
@@ -242,8 +263,12 @@
 }
 
 @keyframes expandWidth {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .hero-description {
@@ -278,7 +303,7 @@
 }
 
 .btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -287,7 +312,9 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
   transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
+  transition:
+    width 0.6s,
+    height 0.6s;
 }
 
 .btn:hover::before {
@@ -372,7 +399,11 @@
 .card-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent));
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light),
+    var(--color-accent)
+  );
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -404,7 +435,11 @@
 /* Stats Section */
 .stats-section {
   padding: 5rem 3rem;
-  background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-paper) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-cream) 0%,
+    var(--color-paper) 100%
+  );
 }
 
 .stats-grid {
@@ -435,7 +470,11 @@
   font-family: var(--font-display);
   font-size: 3.5rem;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent));
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light),
+    var(--color-accent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -511,13 +550,17 @@
 }
 
 .feature-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent));
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light),
+    var(--color-accent)
+  );
   opacity: 0;
   transition: opacity 0.4s ease;
   border-radius: 24px;
@@ -536,7 +579,11 @@
 .feature-icon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent));
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light),
+    var(--color-accent)
+  );
   border-radius: 16px;
   display: flex;
   align-items: center;

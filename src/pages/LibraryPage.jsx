@@ -14,7 +14,12 @@ import {
   Tag,
 } from "lucide-react";
 import "./LibraryPage.css";
-import pdf from "../Assets/dummyPdf.pdf";
+// import pdf from "../Assets/dummyPdf.pdf";
+import pdf1 from "../Assets/UJAR_1.pdf";
+import pdf2 from "../Assets/UJAR_2.pdf";
+import pdf3 from "../Assets/UJAR_3.pdf";
+import pdf4 from "../Assets/UJAR_4.pdf";
+import pdf5 from "../Assets/UJAR_5.pdf";
 
 const LibraryPage = () => {
   const navigate = useNavigate();
@@ -28,170 +33,85 @@ const LibraryPage = () => {
   const pdfs = [
     {
       id: 1,
-      title: "Optimization of Heat Transfer in Compact Heat Exchangers",
-      author: "A. K. Sharma et al.",
-      category: "Mechanical Engineering",
-      date: "2026-01-15",
-      downloads: 1243,
-      pages: 38,
-      size: "2.1 MB",
+      title: "Trend Analysis of Rainfall In Uttar Pradesh",
+      author: "Angad Yadav, Mithu Kumar ",
+      category: "Department of Civil Engineering",
+      date: "2026-01-01",
+      pdf: pdf1,
       abstract:
-        "This study investigates enhanced heat transfer techniques in compact heat exchangers using numerical and experimental approaches.",
-      tags: ["Heat Transfer", "Thermal Engineering", "Heat Exchangers"],
+        "This study examines rainfall variability in Eastern and Western Uttar Pradesh from 1901–2017, revealing a declining trend in rainfall, delayed monsoon onset, and a shortened rainy season, particularly in Eastern Uttar Pradesh.",
+      tags: ["Rainfall Trends", "Monsoon Variability", "Climate Change"],
     },
     {
       id: 2,
-      title: "Experimental Analysis of Turbulent Flow in Pipe Systems",
-      author: "R. Verma et al.",
-      category: "Mechanical Engineering",
-      date: "2026-01-10",
-      downloads: 892,
-      pages: 46,
-      size: "3.4 MB",
+      title:
+        "Evaluation of Mechanical and Self-Healing Performance of Bacterial Concrete Using BACTAHEAL-PR and Fly Ash: A Sustainable Approach",
+      author: "Astha Dwivedi, Md Shuaib Khan,",
+      category: "Department of Civil Engineering",
+      date: "2026-01-01",
+      pdf: pdf2,
       abstract:
-        "An experimental investigation into turbulent flow characteristics in circular pipe systems under varying Reynolds numbers.",
-      tags: ["Fluid Mechanics", "Turbulence", "Pipe Flow"],
-    },
-    {
-      id: 3,
-      title: "Mechanical Behavior of Advanced Composite Materials",
-      author: "S. Patel et al.",
-      category: "Mechanical Engineering",
-      date: "2025-12-28",
-      downloads: 2156,
-      pages: 54,
-      size: "4.7 MB",
-      abstract:
-        "This paper analyzes the mechanical properties of fiber-reinforced composite materials for structural applications.",
+        "This study investigates bacterial self-healing concrete using BACTAHEAL-PR, showing that optimized dosage improves strength and enables effective crack healing.",
       tags: [
-        "Composite Materials",
-        "Material Science",
-        "Mechanical Properties",
+        "Self-Healing Concrete",
+        "Bacterial Concrete",
+        "Sustainable Construction",
       ],
     },
     {
-      id: 4,
-      title: "Design and Analysis of Energy Efficient HVAC Systems",
-      author: "M. Singh et al.",
-      category: "Mechanical Engineering",
-      date: "2025-12-20",
-      downloads: 634,
-      pages: 42,
-      size: "6.2 MB",
+      id: 3,
+      title:
+        "Seasonal Assessment of Physico-Chemical Water Quality Parameters of the Ganga River at Varanasi, India",
+      author: "Angad Yadav, Vishal Yadav",
+      category: " Department of Civil Engineering",
+      date: "2026-01-01",
+      pdf: pdf3,
       abstract:
-        "The study presents design methodologies and performance analysis of energy-efficient HVAC systems for commercial buildings.",
-      tags: ["HVAC", "Energy Efficiency", "Building Systems"],
+        "This study assesses seasonal water quality variations of the Ganga River at major ghats in Varanasi, revealing elevated pollution levels during the monsoon season and highlighting the need for improved river management.",
+      tags: ["Ganga River", "Water Quality Assessment", "Seasonal Variation"],
+    },
+    {
+      id: 4,
+      title:
+        "Spatiotemporal Analysis of Nitrogen Dioxide (NO2) Dynamics in Lucknow, India: A Comparative Study of Pre-Lockdown and COVID-19 Lockdown Periods using Google Earth Engine ",
+      author: "Atisham Ali, Pawan Yadav ",
+      category: " Department of Civil Engineering",
+      date: "2026-01-01",
+      pdf: pdf4,
+      abstract:
+        "This study uses Google Earth Engine and Sentinel-5P data to analyze NO₂ variations in Lucknow, revealing a significant reduction during the COVID-19 lockdown and highlighting the air-quality benefits of reduced anthropogenic activity.",
+      tags: ["NO₂ Pollution", "Remote Sensing", "Urban Air Quality"],
     },
     {
       id: 5,
       title:
-        "Application of Finite Element Analysis in Machine Component Design",
-      author: "P. Kumar et al.",
-      category: "Mechanical Engineering",
-      date: "2025-12-15",
-      downloads: 1567,
-      pages: 61,
-      size: "5.1 MB",
+        "A Review of Digital Banking Trends in Rural India: Challenges and Opportunities ",
+      author: "Farhan Shakeel, Md. Shaquib Khan ",
+      category: "Department of Business Administration,",
+      date: "2026-01-01",
+      pdf: pdf5,
       abstract:
-        "This research focuses on the use of finite element analysis to predict stress, deformation, and failure in machine components.",
+        "This review examines the rapid shift toward digital finance in rural India, highlighting the role of UPI, AePS, and digital public infrastructure while identifying key challenges related to inclusion, infrastructure, and cybersecurity.",
       tags: [
-        "Finite Element Analysis",
-        "Machine Design",
-        "Structural Analysis",
+        "Digital Financial Inclusion",
+        "Rural Banking",
+        "Digital Payments",
       ],
     },
-    {
-      id: 6,
-      title:
-        "Tribological Performance of Lubricants under High Load Conditions",
-      author: "D. Rao et al.",
-      category: "Mechanical Engineering",
-      date: "2025-12-05",
-      downloads: 445,
-      pages: 49,
-      size: "3.6 MB",
-      abstract:
-        "An experimental study on friction and wear characteristics of industrial lubricants under high-load operating conditions.",
-      tags: ["Tribology", "Lubrication", "Wear Analysis"],
-    },
-    {
-      id: 7,
-      title: "Additive Manufacturing Techniques for Metal Components",
-      author: "L. Mehta et al.",
-      category: "Mechanical Engineering",
-      date: "2025-11-28",
-      downloads: 978,
-      pages: 57,
-      size: "6.8 MB",
-      abstract:
-        "This paper reviews metal additive manufacturing processes and their mechanical performance in industrial applications.",
-      tags: ["Additive Manufacturing", "3D Printing", "Metal Fabrication"],
-    },
-    {
-      id: 8,
-      title: "Dynamics and Vibration Control of Rotating Machinery",
-      author: "K. Nair et al.",
-      category: "Mechanical Engineering",
-      date: "2025-11-20",
-      downloads: 1834,
-      pages: 63,
-      size: "4.9 MB",
-      abstract:
-        "The study examines vibration characteristics and control strategies for high-speed rotating machinery.",
-      tags: ["Machine Dynamics", "Vibration Analysis", "Rotordynamics"],
-    },
-    {
-      id: 9,
-      title: "Performance Analysis of Solar Thermal Energy Systems",
-      author: "A. Mishra et al.",
-      category: "Mechanical Engineering",
-      date: "2025-11-12",
-      downloads: 1123,
-      pages: 52,
-      size: "5.4 MB",
-      abstract:
-        "An analytical and experimental evaluation of solar thermal collectors for sustainable energy generation.",
-      tags: ["Solar Energy", "Thermal Systems", "Renewable Energy"],
-    },
-    {
-      id: 10,
-      title: "CFD Analysis of Aerodynamic Drag Reduction in Automobiles",
-      author: "T. Bose et al.",
-      category: "Mechanical Engineering",
-      date: "2025-11-05",
-      downloads: 756,
-      pages: 47,
-      size: "4.2 MB",
-      abstract:
-        "This paper presents a computational fluid dynamics study focused on reducing aerodynamic drag in vehicle design.",
-      tags: ["CFD", "Aerodynamics", "Automotive Engineering"],
-    },
-    {
-      id: 11,
-      title: "Fatigue Life Prediction of Welded Joints",
-      author: "S. Kulkarni et al.",
-      category: "Mechanical Engineering",
-      date: "2025-10-28",
-      downloads: 1445,
-      pages: 58,
-      size: "5.6 MB",
-      abstract:
-        "An investigation into fatigue behavior and life prediction methods for welded joints under cyclic loading.",
-      tags: ["Fatigue Analysis", "Welding", "Structural Integrity"],
-    },
-    {
-      id: 12,
-      title: "Optimization of Manufacturing Processes Using Lean Techniques",
-      author: "R. Choudhary et al.",
-      category: "Mechanical Engineering",
-      date: "2025-10-15",
-      downloads: 623,
-      pages: 44,
-      size: "3.9 MB",
-      abstract:
-        "This study explores the application of lean manufacturing principles to improve productivity and reduce waste.",
-      tags: ["Manufacturing", "Lean Engineering", "Process Optimization"],
-    },
+    // {
+    //   id: 6,
+    //   title:
+    //     "Tribological Performance of Lubricants under High Load Conditions",
+    //   author: "D. Rao et al.",
+    //   category: "Mechanical Engineering",
+    //   date: "2025-12-05",
+    //   downloads: 445,
+    //   pages: 49,
+    //   size: "3.6 MB",
+    //   abstract:
+    //     "An experimental study on friction and wear characteristics of industrial lubricants under high-load operating conditions.",
+    //   tags: ["Tribology", "Lubrication", "Wear Analysis"],
+    // },
   ];
 
   const categories = [
@@ -237,7 +157,7 @@ const LibraryPage = () => {
   const handleDownload = (pdfData) => {
     // Create a download link for the PDF
     const link = document.createElement("a");
-    link.href = pdf;
+    link.href = pdfData?.pdf;
     link.download = `${pdfData.title}.pdf`;
     document.body.appendChild(link);
     link.click();
@@ -344,8 +264,8 @@ const LibraryPage = () => {
                 <span className="pdf-date">
                   <Calendar size={14} />
                   {new Date(pdf.date).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
+                    month: "long",
+                    // day: "numeric",
                     year: "numeric",
                   })}
                 </span>
@@ -362,7 +282,7 @@ const LibraryPage = () => {
             <p className="pdf-abstract">{pdf.abstract}</p>
 
             <div className="pdf-tags">
-              {pdf.tags.map((tag) => (
+              {pdf?.tags.map((tag) => (
                 <span key={tag} className="pdf-tag">
                   <Tag size={12} />
                   {tag}
@@ -371,7 +291,7 @@ const LibraryPage = () => {
             </div>
 
             <div className="pdf-footer">
-              <div className="pdf-stats">
+              {/* <div className="pdf-stats">
                 <span className="stat-item">{pdf.pages} pages</span>
                 <span className="stat-divider">•</span>
                 <span className="stat-item">{pdf.size}</span>
@@ -379,12 +299,12 @@ const LibraryPage = () => {
                 <span className="stat-item">
                   {pdf.downloads.toLocaleString()} downloads
                 </span>
-              </div>
+              </div> */}
 
               <div className="pdf-actions">
                 <button
                   className="action-btn preview-btn"
-                  onClick={() => handlePreview(pdf)}
+                  onClick={() => handlePreview(pdf?.pdf)}
                 >
                   <Eye size={18} />
                   Preview
@@ -448,7 +368,11 @@ const LibraryPage = () => {
               </button>
             </div>
             <div className="preview-body">
-              <iframe src={pdf} title="PDF Preview" className="pdf-viewer" />
+              <iframe
+                src={previewPdf}
+                title="PDF Preview"
+                className="pdf-viewer"
+              />
             </div>
             <div className="preview-footer">
               <button

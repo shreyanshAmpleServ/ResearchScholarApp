@@ -79,6 +79,17 @@ const Layout = () => {
                 </button>
               </div>
             </div>
+            <div className="nav-dropdown">
+              <span className="nav-link">Archive </span>
+              <div className="dropdown-menu">
+                <button onClick={() => goTo("/library/archive")}>
+                  Select Volume
+                </button>
+                {/* <button onClick={() => goTo("/publication-charges")}>
+                  Publication Charges
+                </button> */}
+              </div>
+            </div>
 
             <button className="nav-link" onClick={() => goTo("/contact")}>
               Contact
@@ -128,6 +139,7 @@ const Layout = () => {
           <button onClick={() => goTo("/publication-charges")}>
             Publication Charges
           </button>
+          <button onClick={() => goTo("/library/archive")}>Archive</button>
           <button onClick={() => goTo("/contact")}>Contact</button>
 
           <button

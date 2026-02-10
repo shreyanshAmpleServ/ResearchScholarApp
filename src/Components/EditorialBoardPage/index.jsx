@@ -1,3 +1,58 @@
+const editors = {
+  "Editor-in-Chief": [
+    {
+      name: "Er. Kundan Bhushan",
+      email: "kundanbushan.ujar@proton.me",
+      degree: [
+        "M.Tech (Environmental Engineering)",
+        "B.Tech (Civil Engineering)",
+      ],
+    },
+  ],
+  "Associate Editor": [
+    {
+      name: "Er. Praveen Kumar Yadav",
+      email: "praveen.ujar@proton.me",
+      degree: [
+        "M.Tech (Environmental Engineering)",
+        "B.Tech (Civil Engineering)",
+      ],
+    },
+  ],
+  "Editorial Members": [
+    {
+      name: "Er. Vaishali Saxena",
+      email: "vaishali.ujar@proton.me",
+      degree: ["M.Tech (Biotechnology)", "B.Tech (Biotechnology)"],
+    },
+    {
+      name: "Parvez Alam Ansari",
+      email: "parvez.ujar@proton.me",
+      degree: ["MBA (HR, Finance)", "BBA"],
+    },
+    {
+      name: "Er. Satyam Singh",
+      email: "satyam.ujar@proton.me",
+      degree: ["B.Tech (Computer Science Engineering)"],
+    },
+    {
+      name: "Er. Shreyansh Tripathi",
+      email: "shreyansh.ujar@proton.me",
+      degree: ["B.Tech (Computer Science Engineering)"],
+    },
+    {
+      name: "Er. Sayyed Md. Raja",
+      email: "SayyedMdRaja.ujar@proton.me",
+      degree: ["B.Tech (Mechanical Engineering)"],
+    },
+    {
+      name: "Satish Yadav",
+      email: "satish.ujar@proton.me",
+      degree: ["M.Sc. (Mathematics, Physics)", "B.Sc., B.Ed."],
+    },
+  ],
+};
+
 const EditorialBoardPage = () => {
   return (
     <div className="page-wrapper fade-in">
@@ -6,101 +61,32 @@ const EditorialBoardPage = () => {
         <p>Guided by Academic Excellence & Research Integrity</p>
       </div>
 
-      <section className="content-section">
-        <h2>Editor-in-Chief</h2>
-        <div className="profile-card slide-up">
-          <h3>Er. Kundan Bhushan</h3>
-          <span>kundanbushan.ujar@proton.me</span>
+      {Object.entries(editors).map(([role, members]) => (
+        <section className="content-section" key={role}>
+          <h2>{role}</h2>
 
-          <p>
-            M.Tech (Environmental Engineering)
-            <br />
-            B.Tech (Civil Engineering)
-          </p>
-        </div>
-      </section>
-
-      <section className="content-section">
-        <h2>Associate Editor</h2>
-
-        <div className="profile-card slide-up">
-          <h3>Er. Praveen Kumar Yadav</h3>
-          <span>praveen.ujar@proton.me</span>
-
-          <p>
-            M.Tech (Environmental Engineering)
-            <br />
-            B.Tech (Civil Engineering)
-          </p>
-        </div>
-      </section>
-      <section className="content-section">
-        <h2>Editorial Members</h2>
-
-        <div className="profile-card slide-up">
-          <h3>Er. Vaishali Saxena</h3>
-          <span>vaishali.ujar@proton.me</span>
-
-          <p>
-            M.Tech (Biotechnology)
-            <br />
-            B.Tech (Biotechnology)
-          </p>
-        </div>
-
-        <div className="profile-card slide-up">
-          <h3>Parvez Alam Ansari</h3>
-          <span>parvez.ujar@proton.me</span>
-
-          <p>
-            MBA (HR, Finance)
-            <br />
-            BBA
-          </p>
-        </div>
-
-        <div className="profile-card slide-up">
-          <h3>Er. Satyam Singh</h3>
-          <span>satyam.ujar@proton.me</span>
-
-          <p>B.Tech (Computer Science Engineering)</p>
-        </div>
-
-        <div className="profile-card slide-up">
-          <h3>Er. Shreyansh Tripathi</h3>
-          <span>shreyansh.ujar@proton.me</span>
-          <p>B.Tech (Computer Science Engineering)</p>
-        </div>
-
-        <div className="profile-card slide-up">
-          <h3>Er. Sayyed Md. Raja</h3>
-          <span>SayyedMdRaja.ujar@proton.me</span>
-
-          <p>B.Tech (Mechanical Engineering)</p>
-        </div>
-
-        <div className="profile-card slide-up">
-          <h3>Satish Yadav</h3>
-          <span>satish.ujar@proton.me</span>
-
-          <p>
-            M.Sc. (Mathematics, Physics)
-            <br />
-            B.Sc., B.Ed.
-          </p>
-        </div>
-      </section>
+          {members.map(({ name, email, degree }) => (
+            <div className="profile-card slide-up" key={email}>
+              <h3>{name}</h3>
+              <a href={`mailto:${email}`}>{email}</a>
+              <p>
+                {degree.map((d, i) => (
+                  <span key={i}>
+                    {d}
+                    <br />
+                  </span>
+                ))}
+              </p>
+            </div>
+          ))}
+        </section>
+      ))}
 
       <section className="content-section">
         <h2>Editorial Policy</h2>
         <p>
-          The Editorial Board of UJAR is committed to maintaining the highest
-          standards of academic integrity, ethical publishing practices, and
-          transparent peer-review processes.
-        </p>
-        <p>
-          Additional editorial members and subject experts will be announced
-          periodically as the journal expands its multidisciplinary reach.
+          The Editorial Board of UJAR is committed to academic integrity,
+          ethical publishing, and transparent peer review.
         </p>
       </section>
     </div>

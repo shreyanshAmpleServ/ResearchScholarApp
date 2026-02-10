@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   Download,
   Eye,
@@ -23,107 +23,93 @@ import pdf5 from "../Assets/UJAR_5.pdf";
 
 const LibraryPage = () => {
   const navigate = useNavigate();
+  const { name } = useParams();
+
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedVolume, setSelectedVolume] = useState("All");
-
+  const [selectedVolume, setSelectedVolume] = useState(null);
   const [sortBy, setSortBy] = useState("recent");
+
   const [showPreview, setShowPreview] = useState(false);
   const [previewPdf, setPreviewPdf] = useState(null);
 
-  // Sample PDF data - in a real app, this would come from an API
+  const [showVolumeModal, setShowVolumeModal] = useState(false);
+  const [directLibrary, setDirectLibrary] = useState(false);
+
+  const isArchivePage = name === "archive";
+  useEffect(() => {
+    if (isArchivePage) {
+      setShowVolumeModal(true);
+    }
+  }, [isArchivePage]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const pdfs = [
     {
       id: 1,
       title: "Trend Analysis of Rainfall In Uttar Pradesh",
-      author: "Angad Yadav, Mithu Kumar ",
+      author: "Angad Yadav, Mithu Kumar",
       category: "Department of Civil Engineering",
       date: "2026-01-01",
       volume: 1,
       issue: 1,
       pdf: pdf1,
       abstract:
-        "This study examines rainfall variability in Eastern and Western Uttar Pradesh from 1901–2017, revealing a declining trend in rainfall, delayed monsoon onset, and a shortened rainy season, particularly in Eastern Uttar Pradesh.",
-      tags: ["Rainfall Trends", "Monsoon Variability", "Climate Change"],
+        "This study examines rainfall variability in Eastern and Western Uttar Pradesh.",
+      tags: ["Rainfall", "Climate Change"],
     },
     {
       id: 2,
-      title:
-        "Evaluation of Mechanical and Self-Healing Performance of Bacterial Concrete Using BACTAHEAL-PR and Fly Ash: A Sustainable Approach",
-      author: "Astha Dwivedi, Md Shuaib Khan,",
+      title: "Self-Healing Performance of Bacterial Concrete",
+      author: "Astha Dwivedi, Md Shuaib Khan",
       category: "Department of Civil Engineering",
       date: "2026-01-01",
       volume: 1,
       issue: 1,
       pdf: pdf2,
       abstract:
-        "This study investigates bacterial self-healing concrete using BACTAHEAL-PR, showing that optimized dosage improves strength and enables effective crack healing.",
-      tags: [
-        "Self-Healing Concrete",
-        "Bacterial Concrete",
-        "Sustainable Construction",
-      ],
+        "Optimized bacterial dosage improves strength and crack healing.",
+      tags: ["Bacterial Concrete", "Sustainability"],
     },
     {
       id: 3,
-      title:
-        "Seasonal Assessment of Physico-Chemical Water Quality Parameters of the Ganga River at Varanasi, India",
+      title: "Water Quality Assessment of Ganga River",
       author: "Angad Yadav, Vishal Yadav",
       category: "Department of Civil Engineering",
       date: "2026-01-01",
       volume: 1,
       issue: 1,
       pdf: pdf3,
-      abstract:
-        "This study assesses seasonal water quality variations of the Ganga River at major ghats in Varanasi, revealing elevated pollution levels during the monsoon season and highlighting the need for improved river management.",
-      tags: ["Ganga River", "Water Quality Assessment", "Seasonal Variation"],
+      abstract: "Seasonal variation in water quality at Varanasi ghats.",
+      tags: ["Water Quality", "Ganga River"],
     },
     {
       id: 4,
-      title:
-        "Spatiotemporal Analysis of Nitrogen Dioxide (NO2) Dynamics in Lucknow, India: A Comparative Study of Pre-Lockdown and COVID-19 Lockdown Periods using Google Earth Engine ",
-      author: "Atisham Ali, Pawan Yadav ",
+      title: "NO₂ Dynamics During COVID-19 Lockdown",
+      author: "Atisham Ali, Pawan Yadav",
       category: "Department of Civil Engineering",
       date: "2026-01-01",
       volume: 1,
       issue: 1,
       pdf: pdf4,
-      abstract:
-        "This study uses Google Earth Engine and Sentinel-5P data to analyze NO₂ variations in Lucknow, revealing a significant reduction during the COVID-19 lockdown and highlighting the air-quality benefits of reduced anthropogenic activity.",
-      tags: ["NO₂ Pollution", "Remote Sensing", "Urban Air Quality"],
+      abstract: "Significant reduction in NO₂ during lockdown.",
+      tags: ["Air Quality", "Remote Sensing"],
     },
     {
       id: 5,
-      title:
-        "A Review of Digital Banking Trends in Rural India: Challenges and Opportunities ",
-      author: "Farhan Shakeel, Md. Shaquib Khan ",
+      title: "Digital Banking Trends in Rural India",
+      author: "Farhan Shakeel, Md. Shaquib Khan",
       category: "Department of Business Administration",
       date: "2026-01-01",
       volume: 1,
       issue: 1,
       pdf: pdf5,
-      abstract:
-        "This review examines the rapid shift toward digital finance in rural India, highlighting the role of UPI, AePS, and digital public infrastructure while identifying key challenges related to inclusion, infrastructure, and cybersecurity.",
-      tags: [
-        "Digital Financial Inclusion",
-        "Rural Banking",
-        "Digital Payments",
-      ],
+      abstract: "Challenges and opportunities in rural digital finance.",
+      tags: ["Digital Banking", "Financial Inclusion"],
     },
-    // {
-    //   id: 6,
-    //   title:
-    //     "Tribological Performance of Lubricants under High Load Conditions",
-    //   author: "D. Rao et al.",
-    //   category: "Mechanical Engineering",
-    //   date: "2025-12-05",
-    //   downloads: 445,
-    //   pages: 49,
-    //   size: "3.6 MB",
-    //   abstract:
-    //     "An experimental study on friction and wear characteristics of industrial lubricants under high-load operating conditions.",
-    //   tags: ["Tribology", "Lubrication", "Wear Analysis"],
-    // },
   ];
 
   const categories = [
@@ -138,12 +124,9 @@ const LibraryPage = () => {
   ];
 
   const filteredPdfs = pdfs
+    .filter((pdf) => !selectedVolume || pdf.volume === Number(selectedVolume))
     .filter(
       (pdf) => selectedCategory === "All" || pdf.category === selectedCategory,
-    )
-    .filter(
-      (pdf) =>
-        selectedVolume === "All" || pdf.volume === Number(selectedVolume),
     )
     .filter(
       (pdf) =>
@@ -155,29 +138,20 @@ const LibraryPage = () => {
     )
     .sort((a, b) => {
       if (sortBy === "recent") return new Date(b.date) - new Date(a.date);
-      if (sortBy === "popular") return b.downloads - a.downloads;
       if (sortBy === "title") return a.title.localeCompare(b.title);
       return 0;
     });
 
-  const handlePreview = (pdfData) => {
-    setPreviewPdf(pdfData);
+  const handlePreview = (pdf) => {
+    setPreviewPdf(pdf);
     setShowPreview(true);
   };
 
-  const handleDownload = (pdfData) => {
-    // Create a download link for the PDF
+  const handleDownload = (pdf) => {
     const link = document.createElement("a");
-    link.href = pdfData?.pdf;
-    link.download = `${pdfData.title}.pdf`;
-    document.body.appendChild(link);
+    link.href = pdf.pdf;
+    link.download = `${pdf.title}.pdf`;
     link.click();
-    document.body.removeChild(link);
-  };
-
-  const closePreview = () => {
-    setShowPreview(false);
-    setPreviewPdf(null);
   };
 
   return (
@@ -203,118 +177,119 @@ const LibraryPage = () => {
           </div>
         </div>
       </header>
-
-      {/* Search and Filters */}
-      <section className="search-section">
-        <div className="search-container">
-          <div className="search-bar">
-            <Search className="search-icon" />
-            <input
-              type="text"
-              placeholder="Search by title, author, or tags..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="search-input"
-            />
-          </div>
-
-          <div className="filter-controls">
-            <div className="filter-group">
-              <Filter size={18} />
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="filter-select"
-              >
-                {categories.map((cat) => (
-                  <option key={cat} value={cat}>
-                    {cat}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="filter-group">
-              <FileText size={18} />
-              <select
-                value={selectedVolume}
-                onChange={(e) => setSelectedVolume(e.target.value)}
-                className="filter-select"
-              >
-                <option value="All">All Volumes</option>
-                <option value="1">Volume 1</option>
-                <option value="2">Volume 2</option>
-              </select>
-            </div>
-
-            <div className="filter-group">
-              <SortAsc size={18} />
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="filter-select"
-              >
-                <option value="recent">Most Recent</option>
-                <option value="popular">Most Popular</option>
-                <option value="title">Title (A-Z)</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Results Info */}
-      <div className="results-info">
-        <p>
-          Showing {filteredPdfs.length} publication
-          {filteredPdfs.length !== 1 ? "s" : ""}
-        </p>
-      </div>
-
-      {/* PDF Grid */}
-      <section className="pdf-grid">
-        {filteredPdfs.map((pdf, index) => (
-          <div
-            key={pdf.id}
-            className="pdf-card"
-            style={{ animationDelay: `${index * 0.05}s` }}
-          >
-            <div className="pdf-card-header">
-              <div className="pdf-icon">
-                <FileText size={28} />
+      {(directLibrary || isArchivePage) && (
+        <>
+          {/* Search and Filters */}
+          <section className="search-section">
+            <div className="search-container">
+              <div className="search-bar">
+                <Search className="search-icon" />
+                <input
+                  type="text"
+                  placeholder="Search by title, author, or tags..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="search-input"
+                />
               </div>
-              <div className="pdf-meta-top">
-                <span className="pdf-category">{pdf.category}</span>
-                <span className="pdf-date">
-                  <Calendar size={14} />
-                  {new Date(pdf.date).toLocaleDateString("en-US", {
-                    month: "long",
-                    // day: "numeric",
-                    year: "numeric",
-                  })}
-                </span>
+
+              <div className="filter-controls">
+                <div className="filter-group">
+                  <Filter size={18} />
+                  <select
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    className="filter-select"
+                  >
+                    {categories.map((cat) => (
+                      <option key={cat} value={cat}>
+                        {cat}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="filter-group">
+                  <FileText size={18} />
+                  <select
+                    value={selectedVolume}
+                    onChange={(e) => setSelectedVolume(e.target.value)}
+                    className="filter-select"
+                  >
+                    <option value="All">All Volumes</option>
+                    <option value="1">Volume 1</option>
+                    <option value="2">Volume 2</option>
+                  </select>
+                </div>
+
+                <div className="filter-group">
+                  <SortAsc size={18} />
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="filter-select"
+                  >
+                    <option value="recent">Most Recent</option>
+                    <option value="popular">Most Popular</option>
+                    <option value="title">Title (A-Z)</option>
+                  </select>
+                </div>
               </div>
             </div>
+          </section>
 
-            <h3 className="pdf-title">{pdf.title}</h3>
+          {/* Results Info */}
+          <div className="results-info">
+            <p>
+              Showing {filteredPdfs.length} publication
+              {filteredPdfs.length !== 1 ? "s" : ""}
+            </p>
+          </div>
 
-            <div className="pdf-author">
-              <User size={16} />
-              <span>{pdf.author}</span>
-            </div>
+          {/* PDF Grid */}
+          <section className="pdf-grid">
+            {filteredPdfs.map((pdf, index) => (
+              <div
+                key={pdf.id}
+                className="pdf-card"
+                style={{ animationDelay: `${index * 0.05}s` }}
+              >
+                <div className="pdf-card-header">
+                  <div className="pdf-icon">
+                    <FileText size={28} />
+                  </div>
+                  <div className="pdf-meta-top">
+                    <span className="pdf-category">{pdf.category}</span>
+                    <span className="pdf-date">
+                      <Calendar size={14} />
+                      {new Date(pdf.date).toLocaleDateString("en-US", {
+                        month: "long",
+                        // day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
+                  </div>
+                </div>
 
-            <p className="pdf-abstract">{pdf.abstract}</p>
+                <h3 className="pdf-title">{pdf.title}</h3>
 
-            <div className="pdf-tags">
-              {pdf?.tags.map((tag) => (
-                <span key={tag} className="pdf-tag">
-                  <Tag size={12} />
-                  {tag}
-                </span>
-              ))}
-            </div>
+                <div className="pdf-author">
+                  <User size={16} />
+                  <span>{pdf.author}</span>
+                </div>
 
-            <div className="pdf-footer">
-              {/* <div className="pdf-stats">
+                <p className="pdf-abstract">{pdf.abstract}</p>
+
+                <div className="pdf-tags">
+                  {pdf?.tags.map((tag) => (
+                    <span key={tag} className="pdf-tag">
+                      <Tag size={12} />
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="pdf-footer">
+                  {/* <div className="pdf-stats">
                 <span className="stat-item">{pdf.pages} pages</span>
                 <span className="stat-divider">•</span>
                 <span className="stat-item">{pdf.size}</span>
@@ -323,53 +298,63 @@ const LibraryPage = () => {
                   {pdf.downloads.toLocaleString()} downloads
                 </span>
               </div> */}
-              <div className="pdf-stats">
-                <span className="stat-item">{pdf.volume} Volume</span>
-                <span className="stat-divider">•</span>
-                <span className="stat-item">{pdf.issue} Issue</span>
-                {/* <span className="stat-divider">•</span>
+                  <div className="pdf-stats">
+                    <span className="stat-item">{pdf.volume} Volume</span>
+                    <span className="stat-divider">•</span>
+                    <span className="stat-item">{pdf.issue} Issue</span>
+                    {/* <span className="stat-divider">•</span>
                 <span className="stat-item">
                   {pdf.downloads.toLocaleString()} downloads
                 </span> */}
-              </div>
+                  </div>
 
-              <div className="pdf-actions">
-                <button
-                  className="action-btn preview-btn"
-                  onClick={() => handlePreview(pdf?.pdf)}
-                >
-                  <Eye size={18} />
-                  Preview
-                </button>
-                <button
-                  className="action-btn download-btn"
-                  onClick={() => handleDownload(pdf)}
-                >
-                  <Download size={18} />
-                  Download
-                </button>
+                  <div className="pdf-actions">
+                    <button
+                      className="action-btn preview-btn"
+                      onClick={() => handlePreview(pdf?.pdf)}
+                    >
+                      <Eye size={18} />
+                      Preview
+                    </button>
+                    <button
+                      className="action-btn download-btn"
+                      onClick={() => handleDownload(pdf)}
+                    >
+                      <Download size={18} />
+                      Download
+                    </button>
+                  </div>
+                </div>
               </div>
+            ))}
+          </section>
+
+          {/* Empty State */}
+          {filteredPdfs.length === 0 && (
+            <div className="empty-state">
+              <FileText size={64} className="empty-icon" />
+              <h3>No publications found</h3>
+              <p>Try adjusting your search or filters</p>
             </div>
+          )}
+        </>
+      )}
+      {/* SIMPLE VOLUME BOX (Non-Archive Page) */}
+      {!isArchivePage && !directLibrary && (
+        <div className="volume-inline-wrapper">
+          <div
+            className="volume-inline-card slide-up"
+            onClick={() => {
+              setSelectedVolume("1");
+              setDirectLibrary(true);
+            }}
+          >
+            <FileText size={32} />
+            <h3>Volume 1</h3>
+            <p>Click to view publications</p>
           </div>
-        ))}
-      </section>
-
-      {/* Empty State */}
-      {filteredPdfs.length === 0 && (
-        <div className="empty-state">
-          <FileText size={64} className="empty-icon" />
-          <h3>No publications found</h3>
-          <p>Try adjusting your search or filters</p>
         </div>
       )}
-
-      {/* Footer */}
-      {/* <footer className="library-footer">
-        <p>
-          © 2026 Universal Journal of Advanced Research. Advancing knowledge
-          through collaborative research.
-        </p>
-      </footer> */}
 
       {/* PDF Preview Modal */}
       {showPreview && previewPdf && (
@@ -414,6 +399,41 @@ const LibraryPage = () => {
                 <Download size={18} />
                 Download PDF
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* VOLUME MODAL */}
+      {showVolumeModal && (
+        <div className="volume-modal-overlay">
+          <div className="volume-modal-card slide-up">
+            <div className="volume-modal-header">
+              <FileText size={36} />
+              <h2>Universal Journal of Advanced Research</h2>
+              <p>Select a journal volume to continue</p>
+            </div>
+
+            <div className="volume-options">
+              <button
+                className="volume-btn active"
+                onClick={() => {
+                  setSelectedVolume("1");
+                  setShowVolumeModal(false);
+                }}
+              >
+                <span className="volume-number">Volume 1</span>
+                <span className="volume-year">2026</span>
+              </button>
+
+              <button className="volume-btn disabled" disabled>
+                <span className="volume-number">Volume 2</span>
+                <span className="volume-year">Coming Soon</span>
+              </button>
+            </div>
+
+            <div className="volume-modal-footer">
+              <p>Peer-reviewed • Open Access • Multidisciplinary</p>
             </div>
           </div>
         </div>

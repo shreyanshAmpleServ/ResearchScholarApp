@@ -31,6 +31,7 @@ const Routers = () => {
           />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/library" element={<LibraryPage />} />
+          <Route path="/library/:name" element={<LibraryPage />} />
         </Route>
       </Routes>
     </Router>

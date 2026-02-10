@@ -10,6 +10,8 @@ const EditorialBoardPage = () => {
         <h2>Editor-in-Chief</h2>
         <div className="profile-card slide-up">
           <h3>Er. Kundan Bhushan</h3>
+          <span>kundanbushan.ujar@proton.me</span>
+
           <p>
             M.Tech (Environmental Engineering)
             <br />
@@ -23,6 +25,8 @@ const EditorialBoardPage = () => {
 
         <div className="profile-card slide-up">
           <h3>Er. Praveen Kumar Yadav</h3>
+          <span>praveen.ujar@proton.me</span>
+
           <p>
             M.Tech (Environmental Engineering)
             <br />
@@ -35,6 +39,8 @@ const EditorialBoardPage = () => {
 
         <div className="profile-card slide-up">
           <h3>Er. Vaishali Saxena</h3>
+          <span>vaishali.ujar@proton.me</span>
+
           <p>
             M.Tech (Biotechnology)
             <br />
@@ -44,6 +50,8 @@ const EditorialBoardPage = () => {
 
         <div className="profile-card slide-up">
           <h3>Parvez Alam Ansari</h3>
+          <span>parvez.ujar@proton.me</span>
+
           <p>
             MBA (HR, Finance)
             <br />
@@ -53,21 +61,28 @@ const EditorialBoardPage = () => {
 
         <div className="profile-card slide-up">
           <h3>Er. Satyam Singh</h3>
+          <span>satyam.ujar@proton.me</span>
+
           <p>B.Tech (Computer Science Engineering)</p>
         </div>
 
         <div className="profile-card slide-up">
           <h3>Er. Shreyansh Tripathi</h3>
+          <span>shreyansh.ujar@proton.me</span>
           <p>B.Tech (Computer Science Engineering)</p>
         </div>
 
         <div className="profile-card slide-up">
           <h3>Er. Sayyed Md. Raja</h3>
+          <span>SayyedMdRaja.ujar@proton.me</span>
+
           <p>B.Tech (Mechanical Engineering)</p>
         </div>
 
         <div className="profile-card slide-up">
           <h3>Satish Yadav</h3>
+          <span>satish.ujar@proton.me</span>
+
           <p>
             M.Sc. (Mathematics, Physics)
             <br />

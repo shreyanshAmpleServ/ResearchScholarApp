@@ -101,7 +101,7 @@ const LandingPage = () => {
             vibrant community of thinkers shaping the future of knowledge. */}
           </p>
 
-          {/* <div className="hero-actions">
+          <div className="hero-actions">
             <button
               className="btn btn-primary"
               onClick={() => navigate("/library")}
@@ -110,11 +110,14 @@ const LandingPage = () => {
               Browse Publications
               <ArrowRight size={20} />
             </button>
-            <button className="btn btn-secondary">
+            <button
+              className="btn btn-secondary"
+              onClick={() => navigate("/contact")}
+            >
               <Award size={20} />
-              Submit Research
+              Call For Papers
             </button>
-          </div> */}
+          </div>
         </div>
 
         {/* <div className="hero-visual">

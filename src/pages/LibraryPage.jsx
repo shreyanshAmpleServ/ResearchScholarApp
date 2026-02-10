@@ -25,6 +25,8 @@ const LibraryPage = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedVolume, setSelectedVolume] = useState("All");
+
   const [sortBy, setSortBy] = useState("recent");
   const [showPreview, setShowPreview] = useState(false);
   const [previewPdf, setPreviewPdf] = useState(null);
@@ -37,6 +39,8 @@ const LibraryPage = () => {
       author: "Angad Yadav, Mithu Kumar ",
       category: "Department of Civil Engineering",
       date: "2026-01-01",
+      volume: 1,
+      issue: 1,
       pdf: pdf1,
       abstract:
         "This study examines rainfall variability in Eastern and Western Uttar Pradesh from 1901–2017, revealing a declining trend in rainfall, delayed monsoon onset, and a shortened rainy season, particularly in Eastern Uttar Pradesh.",
@@ -49,6 +53,8 @@ const LibraryPage = () => {
       author: "Astha Dwivedi, Md Shuaib Khan,",
       category: "Department of Civil Engineering",
       date: "2026-01-01",
+      volume: 1,
+      issue: 1,
       pdf: pdf2,
       abstract:
         "This study investigates bacterial self-healing concrete using BACTAHEAL-PR, showing that optimized dosage improves strength and enables effective crack healing.",
@@ -63,8 +69,10 @@ const LibraryPage = () => {
       title:
         "Seasonal Assessment of Physico-Chemical Water Quality Parameters of the Ganga River at Varanasi, India",
       author: "Angad Yadav, Vishal Yadav",
-      category: " Department of Civil Engineering",
+      category: "Department of Civil Engineering",
       date: "2026-01-01",
+      volume: 1,
+      issue: 1,
       pdf: pdf3,
       abstract:
         "This study assesses seasonal water quality variations of the Ganga River at major ghats in Varanasi, revealing elevated pollution levels during the monsoon season and highlighting the need for improved river management.",
@@ -75,8 +83,10 @@ const LibraryPage = () => {
       title:
         "Spatiotemporal Analysis of Nitrogen Dioxide (NO2) Dynamics in Lucknow, India: A Comparative Study of Pre-Lockdown and COVID-19 Lockdown Periods using Google Earth Engine ",
       author: "Atisham Ali, Pawan Yadav ",
-      category: " Department of Civil Engineering",
+      category: "Department of Civil Engineering",
       date: "2026-01-01",
+      volume: 1,
+      issue: 1,
       pdf: pdf4,
       abstract:
         "This study uses Google Earth Engine and Sentinel-5P data to analyze NO₂ variations in Lucknow, revealing a significant reduction during the COVID-19 lockdown and highlighting the air-quality benefits of reduced anthropogenic activity.",
@@ -87,8 +97,10 @@ const LibraryPage = () => {
       title:
         "A Review of Digital Banking Trends in Rural India: Challenges and Opportunities ",
       author: "Farhan Shakeel, Md. Shaquib Khan ",
-      category: "Department of Business Administration,",
+      category: "Department of Business Administration",
       date: "2026-01-01",
+      volume: 1,
+      issue: 1,
       pdf: pdf5,
       abstract:
         "This review examines the rapid shift toward digital finance in rural India, highlighting the role of UPI, AePS, and digital public infrastructure while identifying key challenges related to inclusion, infrastructure, and cybersecurity.",
@@ -116,23 +128,22 @@ const LibraryPage = () => {
 
   const categories = [
     "All",
+    "Department of Civil Engineering",
+    "Department of Business Administration",
     "Computer Science",
     "Medical Science",
     "Environmental Science",
     "Architecture",
     "Economics",
-    "Archaeology",
-    "Business",
-    "Neuroscience",
-    "Engineering",
-    "Social Science",
-    "Bioethics",
-    "Urban Studies",
   ];
 
   const filteredPdfs = pdfs
     .filter(
       (pdf) => selectedCategory === "All" || pdf.category === selectedCategory,
+    )
+    .filter(
+      (pdf) =>
+        selectedVolume === "All" || pdf.volume === Number(selectedVolume),
     )
     .filter(
       (pdf) =>
@@ -222,6 +233,18 @@ const LibraryPage = () => {
                 ))}
               </select>
             </div>
+            <div className="filter-group">
+              <FileText size={18} />
+              <select
+                value={selectedVolume}
+                onChange={(e) => setSelectedVolume(e.target.value)}
+                className="filter-select"
+              >
+                <option value="All">All Volumes</option>
+                <option value="1">Volume 1</option>
+                <option value="2">Volume 2</option>
+              </select>
+            </div>
 
             <div className="filter-group">
               <SortAsc size={18} />
@@ -300,6 +323,15 @@ const LibraryPage = () => {
                   {pdf.downloads.toLocaleString()} downloads
                 </span>
               </div> */}
+              <div className="pdf-stats">
+                <span className="stat-item">{pdf.volume} Volume</span>
+                <span className="stat-divider">•</span>
+                <span className="stat-item">{pdf.issue} Issue</span>
+                {/* <span className="stat-divider">•</span>
+                <span className="stat-item">
+                  {pdf.downloads.toLocaleString()} downloads
+                </span> */}
+              </div>
 
               <div className="pdf-actions">
                 <button

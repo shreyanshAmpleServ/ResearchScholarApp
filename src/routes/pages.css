@@ -30,7 +30,8 @@
 
 .profile-card,
 .charge-card {
-  padding: 1.5rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.03);
 }

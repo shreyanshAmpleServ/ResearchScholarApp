@@ -29,6 +29,9 @@ const EditorialBoardPage = () => {
             B.Tech (Civil Engineering)
           </p>
         </div>
+      </section>
+      <section className="content-section">
+        <h2>Editorial Members</h2>
 
         <div className="profile-card slide-up">
           <h3>Er. Vaishali Saxena</h3>

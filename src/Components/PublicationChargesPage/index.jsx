@@ -21,9 +21,9 @@ const PublicationChargesPage = () => {
           <p>
             <strong>Indian Authors:</strong> ₹700 per paper (Up to 7 authors)
           </p>
-          <p>
+          {/* <p>
             <strong>International Authors:</strong> $15 USD per paper
-          </p>
+          </p> */}
         </div>
       </section>
 

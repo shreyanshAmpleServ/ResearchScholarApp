@@ -21,7 +21,7 @@ const EditorialBoardPage = () => {
       <section className="content-section">
         <h2>Associate Editor</h2>
         <div className="profile-card slide-up">
-          <h3>Praveen Kumar Yadav</h3>
+          <h3>Er. Praveen Kumar Yadav</h3>
           <p>
             M.Tech (Environmental Engineering)
             <br />

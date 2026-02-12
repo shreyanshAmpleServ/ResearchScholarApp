@@ -21,7 +21,7 @@ const ContactPage = () => {
             <strong>WhatsApp / Phone:</strong> +91 6307375174/ +91 8303602608
           </li>
           <li>
-            <strong>Email:</strong>kundanbushan.ujar@proton.me
+            <strong>Email:</strong>kundan.bhushan.ujar@protonmail.com
           </li>
           <li>
             <strong>Response Time:</strong> Within 24 hours

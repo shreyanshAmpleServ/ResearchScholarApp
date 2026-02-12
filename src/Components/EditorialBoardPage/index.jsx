@@ -2,7 +2,7 @@ const editors = {
   "Editor-in-Chief": [
     {
       name: "Er. Kundan Bhushan",
-      email: "kundanbushan.ujar@proton.me",
+      email: "kundan.bhushan.ujar@protonmail.com",
       degree: [
         "M.Tech (Environmental Engineering)",
         "B.Tech (Civil Engineering)",
@@ -12,7 +12,7 @@ const editors = {
   "Associate Editor": [
     {
       name: "Er. Praveen Kumar Yadav",
-      email: "praveen.ujar@proton.me",
+      email: "praveenyadav.ujar@protonmail.com",
       degree: [
         "M.Tech (Environmental Engineering)",
         "B.Tech (Civil Engineering)",
@@ -22,12 +22,12 @@ const editors = {
   "Editorial Members": [
     {
       name: "Er. Vaishali Saxena",
-      email: "vaishali.ujar@proton.me",
+      email: "vaishalisaxenaujar@proton.me",
       degree: ["M.Tech (Biotechnology)", "B.Tech (Biotechnology)"],
     },
     {
       name: "Parvez Alam Ansari",
-      email: "parvez.ujar@proton.me",
+      email: "parvezalam.ujar@protonmail.com",
       degree: ["MBA (HR, Finance)", "BBA"],
     },
     {
@@ -42,12 +42,12 @@ const editors = {
     },
     {
       name: "Er. Sayyed Md. Raja",
-      email: "SayyedMdRaja.ujar@proton.me",
+      email: "sayyedraja.ujar@protonmail.com",
       degree: ["B.Tech (Mechanical Engineering)"],
     },
     {
       name: "Satish Yadav",
-      email: "satish.ujar@proton.me",
+      email: "satishyadav.ujar@protonmail.com",
       degree: ["M.Sc. (Mathematics, Physics)", "B.Sc., B.Ed."],
     },
   ],

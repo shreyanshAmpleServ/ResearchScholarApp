@@ -28,6 +28,11 @@ const LandingPage = () => {
         "All published articles are freely accessible to readers worldwide without any subscription barriers.",
     },
     {
+      icon: <Database />,
+      title: "DOI and Indexing services available",
+      description: "This journal is indexed in the Zenodo Repository (CERN).",
+    },
+    {
       icon: <Zap />,
       title: "Fast Publication (24 Hours)",
       description:
@@ -223,7 +228,17 @@ const LandingPage = () => {
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="feature-icon">{feature.icon}</div>
-              <h3 className="feature-title">{feature.title}</h3>
+              {index == 1 ? (
+                <a
+                  href="https://zenodo.org/communities/universal-journal-of-advanced-research/records"
+                  target="_blank"
+                  className="feature-title"
+                >
+                  {feature.title}
+                </a>
+              ) : (
+                <h3 className="feature-title">{feature.title}</h3>
+              )}
               <p className="feature-description">{feature.description}</p>
             </div>
           ))}

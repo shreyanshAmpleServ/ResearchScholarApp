@@ -47,10 +47,26 @@ const LibraryPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  //   Trend Analysis of Rainfall In Uttar Pradesh :
+  //        https://doi.org/10.5281/zenodo.18616889
+
+  // Evaluation of Mechanical and Self-Healing Performance of Bacterial Concrete Using BACTAHEAL-PR and Fly Ash: A Sustainable Approach :
+  //  https://doi.org/10.5281/zenodo.18617041
+
+  // Seasonal Assessment of Physico-Chemical Water Quality Parameters of the Ganga River at Varanasi, India :
+  //  https://doi.org/10.5281/zenodo.18617068
+
+  // Spatiotemporal Analysis of Nitrogen Dioxide (NO2) Dynamics in Lucknow, India: A Comparative Study of Pre-Lockdown and COVID-19 Lockdown Periods using Google Earth Engine :
+  //  https://doi.org/10.5281/zenodo.18617106
+
+  // A Review of Digital Banking Trends in Rural India: Challenges and Opportunities :
+  // https://doi.org/10.5281/zenodo.18617137
   const pdfs = [
     {
       id: 1,
       title: "Trend Analysis of Rainfall In Uttar Pradesh",
+      link_description: "Trend Analysis of Rainfall In Uttar Pradesh ",
+      link: "https://doi.org/10.5281/zenodo.18616889",
       author: "Angad Yadav, Mithu Kumar",
       category: "Department of Civil Engineering",
       date: "2026-01-01",
@@ -64,6 +80,9 @@ const LibraryPage = () => {
     {
       id: 2,
       title: "Self-Healing Performance of Bacterial Concrete",
+      link_description:
+        "Evaluation of Mechanical and Self-Healing Performance of Bacterial Concrete Using BACTAHEAL-PR and Fly Ash: A Sustainable Approach",
+      link: "https://doi.org/10.5281/zenodo.18617041",
       author: "Astha Dwivedi, Md Shuaib Khan",
       category: "Department of Civil Engineering",
       date: "2026-01-01",
@@ -77,6 +96,9 @@ const LibraryPage = () => {
     {
       id: 3,
       title: "Water Quality Assessment of Ganga River",
+      link_description:
+        "Seasonal Assessment of Physico-Chemical Water Quality Parameters of the Ganga River at Varanasi, India ",
+      link: "https://doi.org/10.5281/zenodo.18617068",
       author: "Angad Yadav, Vishal Yadav",
       category: "Department of Civil Engineering",
       date: "2026-01-01",
@@ -90,6 +112,9 @@ const LibraryPage = () => {
       id: 4,
       title: "NO₂ Dynamics During COVID-19 Lockdown",
       author: "Atisham Ali, Pawan Yadav",
+      link_description:
+        "Spatiotemporal Analysis of Nitrogen Dioxide (NO2) Dynamics in Lucknow, India: A Comparative Study of Pre-Lockdown and COVID-19 Lockdown Periods using Google Earth Engine",
+      link: "https://doi.org/10.5281/zenodo.18617106",
       category: "Department of Civil Engineering",
       date: "2026-01-01",
       volume: 1,
@@ -101,6 +126,9 @@ const LibraryPage = () => {
     {
       id: 5,
       title: "Digital Banking Trends in Rural India",
+      link_description:
+        "A Review of Digital Banking Trends in Rural India: Challenges and Opportunities",
+      link: "https://doi.org/10.5281/zenodo.18617137",
       author: "Farhan Shakeel, Md. Shaquib Khan",
       category: "Department of Business Administration",
       date: "2026-01-01",
@@ -287,6 +315,12 @@ const LibraryPage = () => {
                     </span>
                   ))}
                 </div>
+                <p className="pdf-abstract">
+                  {pdf.link_description}:{" "}
+                  <a href={pdf.link} target="_blank">
+                    {pdf.link}
+                  </a>
+                </p>
 
                 <div className="pdf-footer">
                   {/* <div className="pdf-stats">

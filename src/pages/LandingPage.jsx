@@ -53,9 +53,9 @@ const LandingPage = () => {
     },
     {
       icon: <Hash />,
-      title: " International Standard Serial Number (ISSN)",
+      title: "ISSN Registration (In Process)  (In Process)",
       description:
-        "The journal is officially registered with an International Standard Serial Number (ISSN) for authenticity.",
+        "The journal’s International Standard Serial Number (ISSN) registration is currently under process and will be assigned soon for official recognition and authenticity.",
     },
     {
       icon: <SearchCheck />,

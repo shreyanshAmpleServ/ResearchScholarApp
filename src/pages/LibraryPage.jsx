@@ -315,14 +315,14 @@ const LibraryPage = () => {
                     </span>
                   ))}
                 </div>
-                <div>
-                  <p className="pdf-abstract">{pdf.link_description} </p>
-                  <p className="pdf-abstract">
-                    <a href={pdf.link} target="_blank">
-                      {pdf.link}
-                    </a>
-                  </p>
-                </div>
+                <p className="pdf-abstract" style={{ marginBottom: 0 }}>
+                  {pdf.link_description}{" "}
+                </p>
+                <p className="pdf-abstract">
+                  <a href={pdf.link} target="_blank">
+                    {pdf.link}
+                  </a>
+                </p>
 
                 <div className="pdf-footer">
                   {/* <div className="pdf-stats">

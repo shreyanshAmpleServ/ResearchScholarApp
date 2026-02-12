@@ -126,31 +126,6 @@ const LandingPage = () => {
           </div>
         </div>
         {/* Indexing Partners Section */}
-        <section className="indexing-section">
-          <div className="indexing-container">
-            <h2 className="indexing-title">Indexed & Archived With</h2>
-
-            <div className="indexing-logos">
-              <a
-                href="https://zenodo.org/communities/universal-journal-of-advanced-research/records?q=&l=list&p=1&s=10&sort=newest"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="indexing-card"
-              >
-                <img src={img2} alt="Zenodo Repository" />
-              </a>
-
-              <a
-                href="https://www.openaire.eu/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="indexing-card"
-              >
-                <img src={img1} alt="OpenAIRE" />
-              </a>
-            </div>
-          </div>
-        </section>
 
         {/* <div className="hero-visual">
           <div className="visual-card card-1">
@@ -216,6 +191,31 @@ const LandingPage = () => {
                 Authors, reviewers, and scholars from all disciplines worldwide
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="indexing-section">
+        <div className="indexing-container">
+          <h2 className="indexing-title">Indexed & Archived With</h2>
+
+          <div className="indexing-logos">
+            <a
+              href="https://zenodo.org/communities/universal-journal-of-advanced-research/records?q=&l=list&p=1&s=10&sort=newest"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="indexing-card"
+            >
+              <img src={img2} alt="Zenodo Repository" />
+            </a>
+
+            <a
+              href="https://www.openaire.eu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="indexing-card"
+            >
+              <img src={img1} alt="OpenAIRE" />
+            </a>
           </div>
         </div>
       </section>

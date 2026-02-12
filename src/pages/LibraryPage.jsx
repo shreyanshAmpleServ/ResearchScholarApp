@@ -315,8 +315,8 @@ const LibraryPage = () => {
                     </span>
                   ))}
                 </div>
+                <p className="pdf-abstract">{pdf.link_description} </p>
                 <p className="pdf-abstract">
-                  {pdf.link_description}:{" "}
                   <a href={pdf.link} target="_blank">
                     {pdf.link}
                   </a>

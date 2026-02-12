@@ -971,7 +971,7 @@
 
 .indexing-section {
   padding: 60px 20px;
-  background: linear-gradient(135deg, #f8fbff, #ffffff);
+  /* background: linear-gradient(135deg, #f8fbff, #ffffff); */
   text-align: center;
 }
 

@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import "./LandingPage.css";
 import img1 from "../Assets/Open.jpg";
-import img2 from "../Assets/zenodo.jpg";
+import img2 from "../Assets/zenedo.jpg";
 
 const LandingPage = () => {
   const navigate = useNavigate();

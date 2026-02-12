@@ -228,18 +228,26 @@ const LandingPage = () => {
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="feature-icon">{feature.icon}</div>
-              {index == 1 ? (
-                <a
-                  href="https://zenodo.org/communities/universal-journal-of-advanced-research/records"
-                  target="_blank"
-                  className="feature-title"
-                >
-                  {feature.title}
-                </a>
-              ) : (
-                <h3 className="feature-title">{feature.title}</h3>
-              )}
-              <p className="feature-description">{feature.description}</p>
+              <h3 className="feature-title">{feature.title}</h3>
+
+              <p className="feature-description">
+                {index === 1 ? (
+                  <>
+                    This journal is indexed in the{" "}
+                    <a
+                      href="https://zenodo.org/communities/universal-journal-of-advanced-research/records"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="feature-link"
+                    >
+                      Zenodo Repository (CERN)
+                    </a>
+                    .
+                  </>
+                ) : (
+                  feature.description
+                )}
+              </p>
             </div>
           ))}
         </div>

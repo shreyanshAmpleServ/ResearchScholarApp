@@ -32,12 +32,12 @@ const editors = {
     },
     {
       name: "Er. Satyam Singh",
-      email: "satyam.ujar@proton.me",
+      email: "satyam.singh.ujar@proton.me",
       degree: ["B.Tech (Computer Science Engineering)"],
     },
     {
       name: "Er. Shreyansh Tripathi",
-      email: "shreyansh.ujar@proton.me",
+      email: "shreyansh.tripathi.ujar@proton.me",
       degree: ["B.Tech (Computer Science Engineering)"],
     },
     {

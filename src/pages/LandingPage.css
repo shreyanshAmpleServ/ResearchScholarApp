@@ -935,7 +935,7 @@
   .feature-card {
     padding: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
   }
   .nav-links a {

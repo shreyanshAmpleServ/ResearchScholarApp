@@ -53,7 +53,7 @@ const LandingPage = () => {
     },
     {
       icon: <Hash />,
-      title: "ISSN Registration (In Process)  (In Process)",
+      title: "ISSN Registration (In Process) ",
       description:
         "The journal’s International Standard Serial Number (ISSN) registration is currently under process and will be assigned soon for official recognition and authenticity.",
     },

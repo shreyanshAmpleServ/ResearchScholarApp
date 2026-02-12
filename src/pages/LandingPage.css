@@ -932,7 +932,9 @@
   .nav-container {
     padding: 1rem 1.5rem;
   }
-
+  .feature-card {
+    padding: 0.5rem;
+  }
   .nav-links a {
     display: none;
   }
